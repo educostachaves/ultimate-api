@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { CatsModule } from './cats/cats.module';
+import { MessagesModule } from './messages/messages.module';
+import { AnswersModule } from './answers/answers.module';
 
 const {
   MONGO_HOST: mongoHost,
@@ -15,7 +16,8 @@ const {
     MongooseModule.forRoot(
       `mongodb://${mongoUser}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoDatabase}?authSource=admin`,
     ),
-    CatsModule,
+    MessagesModule,
+    AnswersModule,
   ],
 })
 export class AppModule {}
