@@ -22,4 +22,9 @@ export class AnswersService {
   public async findByName(name: string): Promise<Answer> {
     return this.answerModel.findOne({ name }).exec();
   }
+
+  public async findByNameAndGetReply(name: string): Promise<string> {
+    const { replies } = await this.answerModel.findOne({ name }).exec();
+    return replies[Math.floor(Math.random() * replies.length)];
+  }
 }

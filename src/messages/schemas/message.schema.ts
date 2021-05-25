@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+
 import { Document } from 'mongoose';
 
 export type MessageDocument = Message & Document;
@@ -6,13 +7,16 @@ export type MessageDocument = Message & Document;
 @Schema()
 export class Message {
   @Prop()
-  name: string;
+  botId: string;
 
   @Prop()
-  age: number;
+  message: string;
 
   @Prop()
-  breed: string;
+  reply: string;
+
+  @Prop()
+  intention: string;
 }
 
 export const MessageSchema = SchemaFactory.createForClass(Message);
