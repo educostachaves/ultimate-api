@@ -9,7 +9,7 @@ import { UltimateService } from './ultimate.service';
 @Injectable()
 export class MessagesService {
   constructor(
-    @InjectModel(Message.name) private readonly messageModel: Model<MessageDocument>,
+    @InjectModel(Message.name) private readonly MessageModel: Model<MessageDocument>,
     private ultimateService: UltimateService,
     private answerService: AnswersService,
   ) {}
@@ -17,7 +17,7 @@ export class MessagesService {
   async create(createMessageDto: CreateMessageDto) {
     const intent: string = await this.ultimateService.getIntents(createMessageDto.message);
     const reply: string = await this.answerService.findByNameAndGetReply(intent);
-    const createdMessage = new this.messageModel(
+    const createdMessage = new this.MessageModel(
       Object.assign(createMessageDto, { reply, intent }));
     return createdMessage.save();
   }

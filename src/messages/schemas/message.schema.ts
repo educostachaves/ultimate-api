@@ -16,7 +16,7 @@ export class Message {
   reply: string;
 
   @Prop()
-  intention: string;
+  intent: string;
 }
 
 export const MessageSchema = SchemaFactory.createForClass(Message);

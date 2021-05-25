@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Exclude } from 'class-transformer';
 import { Document } from 'mongoose';
 
 export type AnswerDocument = Answer & Document;
@@ -10,6 +11,9 @@ export class Answer {
 
   @Prop({ type: [String] })
   replies: string[];
+
+  @Exclude()
+  _id: string;
 }
 
 export const AnswerSchema = SchemaFactory.createForClass(Answer);

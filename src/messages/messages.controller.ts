@@ -13,6 +13,6 @@ export class MessagesController {
   @Post()
   @ApiResponse({ status: 201, description: 'The record has been successfully created.'})
   async create(@Body() CreateMessageDto: CreateMessageDto) {
-    return await this.messagesService.create(CreateMessageDto);
+    return this.messagesService.create(CreateMessageDto);
   }
 }

@@ -5,7 +5,6 @@ export class CreateAnswerDto {
   @ApiProperty()
   @IsString()
   @MaxLength(50)
-  @IsNotEmpty()
   name: string;
 
   @ApiProperty()
@@ -13,6 +12,5 @@ export class CreateAnswerDto {
     each: true,
   })
   @ArrayUnique()
-  @IsNotEmpty()
   replies: string[];
 }
