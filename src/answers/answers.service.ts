@@ -19,15 +19,7 @@ export class AnswersService {
     return this.answerModel.find().exec();
   }
 
-  public async findOne(answerId: string): Promise<Answer> {
-    const answer = await this.answerModel
-      .findById({ _id: answerId })
-      .exec();
-
-    if (!answer) {
-      throw new NotFoundException(`Answer #${answer} not found`);
-    }
-
-    return answer;
+  public async findByName(name: string): Promise<Answer> {
+    return this.answerModel.findOne({ name }).exec();
   }
 }

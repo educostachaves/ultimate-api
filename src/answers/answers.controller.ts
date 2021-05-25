@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Post, Res, NotFoundException, HttpStatus, Param } from '@nestjs/common';
+import { Response } from 'express';
 import { AnswersService } from './answers.service';
 import { CreateAnswerDto } from './dto/create-answer.dto';
 import { Answer } from './schemas/answer.schema';
@@ -11,22 +12,27 @@ export class AnswersController {
 
   @Post()
   @ApiResponse({ status: 201, description: 'The record has been successfully created.'})
-  async create(@Body() CreateAnswerDto: CreateAnswerDto) {
-    this.answersService.create(CreateAnswerDto);
+  async create(@Body() CreateAnswerDto: CreateAnswerDto, @Res() res: Response) {
+    const answer = await this.answersService.create(CreateAnswerDto);
+    return res.status(HttpStatus.CREATED).send(answer);
   }
 
   @Get()
   @ApiResponse({ status: 200, description: 'The response has been successfully retrieved.'})
-  async findAll(): Promise<Answer[]> {
-    return this.answersService.findAll();
+  async findAll(@Res() res: Response) {
+    const answers = await this.answersService.findAll();
+    return res.status(HttpStatus.OK).send(answers);
   }
 
-  @Get('/:id')
-  public async getCustomer(@Res() res, @Param('id') customerId: string) {
-    const customer = await this.answersService.findOne(customerId);
-    if (!customer) {
-      throw new NotFoundException('Customer does not exist!');
+  @Get('/:name')
+  @ApiResponse({ status: 200, description: 'The response has been successfully retrieved.' })
+  @ApiResponse({ status: 404, description: 'The response has not been found' })
+  async findByName(@Param('name') name: string, @Res() res: Response) {
+    const answer = await this.answersService.findByName(name);
+    if (!answer) {
+      return res.status(HttpStatus.NOT_FOUND).send();
     }
-    return res.status(HttpStatus.OK).json(customer);
+    return res.status(HttpStatus.OK).send(answer);
   }
 }
+
