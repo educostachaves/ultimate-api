@@ -24,7 +24,10 @@ describe('UltimateService', () => {
       const data = {
         intents: [
           { confidence: 0.998771607875824, name: "Thank you" },
-          { confidence: 0.0006298190564848483, name: "Greeting" }
+          { confidence: 0.0006298190564848483, name: "Greeting" },
+          { confidence: 0.00013783191388938576, name: "What can I ask you?" },
+          { confidence: 0.00012472993694245815, name: "Who created you? " },
+          { confidence: 0.00009184605733025819, name: "Goodbye" }
         ]
       };
 
