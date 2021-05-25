@@ -6,7 +6,7 @@ import { AxiosResponse } from 'axios';
 
 describe('UltimateService', () => {
   let ultimateService: UltimateService;
-  let httpService: UltimateService;
+  let httpService: HttpService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
@@ -21,7 +21,12 @@ describe('UltimateService', () => {
 
   describe('when try to get a intent from Ultimate.ai API', () => {
     it('should return the best intent', async () => {
-      const data = ['test'];
+      const data = {
+        intents: [
+          { confidence: 0.998771607875824, name: "Thank you" },
+          { confidence: 0.0006298190564848483, name: "Greeting" }
+        ]
+      };
 
       const responseMock: AxiosResponse<any> = {
         data,
@@ -31,8 +36,9 @@ describe('UltimateService', () => {
         statusText: 'OK',
       };
       const httpSpy = jest.spyOn(httpService, 'post').mockImplementationOnce(() => of(responseMock));
-      await ultimateService.getIntents('mocked phrase');
+      const result = await ultimateService.getIntents('mocked phrase');
       expect(httpSpy).toBeCalledTimes(1);
-    })
+      expect(result).toBe('Thank you');
+    });
   })
 });
