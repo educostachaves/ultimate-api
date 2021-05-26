@@ -6,7 +6,7 @@ import { getModelToken } from '@nestjs/mongoose';
 import { Test } from '@nestjs/testing';
 import { Message } from './schemas/message.schema';
 
-class MockAnswerModel {
+class MockMessageModel {
   obj: any;
   constructor(obj) {
     this.obj = obj
@@ -26,7 +26,7 @@ describe('MessagesService', () => {
         MessagesService,
         { provide: UltimateService, useValue: jest.fn() },
         { provide: AnswersService, useValue: jest.fn() },
-        { provide: getModelToken(Message.name), useValue: MockAnswerModel },
+        { provide: getModelToken(Message.name), useValue: MockMessageModel },
       ],
       imports: [ HttpModule ],
     }).compile();

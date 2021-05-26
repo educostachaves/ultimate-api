@@ -16,15 +16,16 @@ export class AnswersService {
   }
 
   async findAll(): Promise<Answer[]> {
-    return this.AnswerModel.find().exec();
+    console.log(this.AnswerModel);
+    return this.AnswerModel.find();
   }
 
   public async findByName(name: string): Promise<Answer> {
-    return this.AnswerModel.findOne({ name }).exec();
+    return this.AnswerModel.findOne({ name });
   }
 
   public async findByNameAndGetReply(name: string): Promise<string> {
-    const { replies } = await this.AnswerModel.findOne({ name }).exec();
+    const { replies } = await this.AnswerModel.findOne({ name });
     return replies[Math.floor(Math.random() * replies.length)];
   }
 }

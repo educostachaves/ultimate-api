@@ -1,4 +1,6 @@
-export interface IAnswer {
-  name: string,
-  replies: string[],
+export interface IMessage {
+  botId: string,
+  message: string,
+  reply: string,
+  intent: string,
 }
