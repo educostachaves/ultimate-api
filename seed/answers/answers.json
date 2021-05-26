@@ -1,0 +1,65 @@
+[
+  {
+    "replies": [
+      "No problem! I will redirect you to a human.",
+      "Sure! You will be redirect to our support.",
+      "Perfect! Redirecting you. See you!"
+    ],
+    "name": "I want to speak with a human"
+  },
+  {
+    "replies": ["Sure! I am a Bot!"],
+    "name": "Are you a bot?"
+  },
+  {
+    "replies": [
+      "Sorry about that. How can I help you?",
+      "It's looks like a reclamation, so how can I help you?"
+    ],
+    "name": "Reclamation"
+  },
+  {
+    "replies": [
+      "Pretty nice your interest. I will redirect you to our sales department",
+      "Awesome! I will redirect you to our sales department"
+    ],
+    "name": "Product interest or quote request"
+  },
+  {
+    "replies": [
+      "You can ask me anything, but i don't have all answers",
+      "Hey, I'm a bot, not a human. I can answer you some limited phrases, so take it easy with me"
+    ],
+    "name": "What can I ask you?"
+  },
+  {
+    "replies": [
+      "Hello Human! How can I help you?",
+      "Hey, what's up! How can I help you?"
+    ],
+    "name": "Greeting"
+  },
+  {
+    "replies": [
+      "Hello Human! I'm good! How can I help you?",
+      "Hey, what's up! How can I help you?"
+    ],
+    "name": "How are you doing?"
+  },
+  {
+    "replies": ["No Problem! Anything else?", "Nice! Anything else?"],
+    "name": "Thank you"
+  },
+  {
+    "replies": ["No Problem! I will redirect you to a Human"],
+    "name": "Means or need to contact"
+  },
+  {
+    "replies": ["See ya!", "Bye!", "See you, Human!"],
+    "name": "Goodbye"
+  },
+  {
+    "replies": ["My father is a Human", "Guess who: My brother is Luke!"],
+    "name": "Who created you?"
+  }
+]

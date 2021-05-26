@@ -70,7 +70,36 @@ $ yarn run test:e2e
 $ yarn run test:cov
 ```
 
+## Documentations
 
+- After running, access `http://localhost:3000/api`. This is a Swagger Documentation to test all endpoints available.
+
+## Doing a first request to get a Reply
+
+- POST to `messages`:
+_Request_
+```
+curl -X 'POST' \
+  'http://localhost:3000/messages' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "botId": "12345",
+  "message": "Hello!"
+}'
+```
+
+_Response_
+```
+{
+  "_id": "60adc65875b9c700e36d139c",
+  "botId": "12345",
+  "message": "Hello!",
+  "reply": "Hey, what's up! How can I help you?",
+  "intent": "Greeting",
+  "__v": 0
+}
+```
 ## License
 
 Nest is [MIT licensed](LICENSE).
