@@ -12,6 +12,7 @@ ENV NODE_ENV=$NODE_ENV
 WORKDIR /home/node/app
 
 COPY package.json yarn.lock ./
+RUN yarn add --global mongo-seeding-cli
 RUN yarn
 
 COPY . .

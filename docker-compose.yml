@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: ./docker/Dockerfile
+      dockerfile: ./docker/app.Dockerfile
       args:
         - PORT=${APP_PORT}
         - NODE_ENV=${NODE_ENV}
@@ -19,7 +19,26 @@ services:
       - ${APP_PORT}:${APP_PORT}
     networks:
       - mynet
+    depends_on:
+      - mongo
     command: "yarn start:dev"
+
+  seed:
+    build:
+      context: .
+      dockerfile: ./docker/seed.Dockerfile
+      args:
+        - DB_HOST=${MONGO_HOST}
+        - DB_PORT=${MONGO_PORT}
+        - DB_NAME=${MONGO_DB}
+        - DB_USERNAME=${MONGO_USER}
+        - DB_PASSWORD=${MONGO_PASSWORD}
+    env_file:
+      - ./.env
+    depends_on:
+      - mongo
+    networks:
+      - mynet
 
   mongo:
     image: mongo:latest

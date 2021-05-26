@@ -16,7 +16,6 @@ export class AnswersService {
   }
 
   async findAll(): Promise<Answer[]> {
-    console.log(this.AnswerModel);
     return this.AnswerModel.find();
   }
 
