@@ -2,7 +2,6 @@ import { Body, Controller, Get, Post, Res, NotFoundException, HttpStatus, Param 
 import { Response } from 'express';
 import { AnswersService } from './answers.service';
 import { CreateAnswerDto } from './dto/create-answer.dto';
-import { Answer } from './schemas/answer.schema';
 import { ApiTags, ApiResponse } from '@nestjs/swagger';
 
 @ApiTags('answers')
