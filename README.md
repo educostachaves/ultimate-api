@@ -15,7 +15,7 @@ This is an example of replies that consumes Ultimate.ai Api. It was built using 
 ## Installation
 
 - Make a copy of `.env-sample` to `.env`
-- Insert Ultimate Auth Params into these two ENVs
+- Insert Ultimate Auth Params into these ENVs
 
 ```bash
 ULTIMATE_BOT_ID=
